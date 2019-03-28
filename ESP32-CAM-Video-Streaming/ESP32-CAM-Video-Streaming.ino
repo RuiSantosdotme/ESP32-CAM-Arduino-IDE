@@ -21,8 +21,8 @@
 #include "img_converters.h"
 #include "Arduino.h"
 #include "fb_gfx.h"
-#include "soc/soc.h" //disable brownour problems
-#include "soc/rtc_cntl_reg.h"  //disable brownour problems
+#include "soc/soc.h" //disable brownout problems
+#include "soc/rtc_cntl_reg.h"  //disable brownout problems
 #include "dl_lib.h"
 #include "esp_http_server.h"
 
