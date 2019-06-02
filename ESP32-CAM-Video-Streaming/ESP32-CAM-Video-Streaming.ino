@@ -32,9 +32,10 @@ const char* password = "REPLACE_WITH_YOUR_PASSWORD";
 
 #define PART_BOUNDARY "123456789000000000000987654321"
 
-// This project was tested with the AI Thinker Model and M5STACK_PSRAM Model
+// This project was tested with the AI Thinker Model, M5STACK PSRAM Model and M5STACK WITHOUT PSRAM
 #define CAMERA_MODEL_AI_THINKER
 //#define CAMERA_MODEL_M5STACK_PSRAM
+//#define CAMERA_MODEL_M5STACK_WITHOUT_PSRAM
 
 // Not tested with this model
 //#define CAMERA_MODEL_WROVER_KIT
@@ -59,6 +60,25 @@ const char* password = "REPLACE_WITH_YOUR_PASSWORD";
   #define PCLK_GPIO_NUM    22
 
 #elif defined(CAMERA_MODEL_M5STACK_PSRAM)
+  #define PWDN_GPIO_NUM     -1
+  #define RESET_GPIO_NUM    15
+  #define XCLK_GPIO_NUM     27
+  #define SIOD_GPIO_NUM     25
+  #define SIOC_GPIO_NUM     23
+  
+  #define Y9_GPIO_NUM       19
+  #define Y8_GPIO_NUM       36
+  #define Y7_GPIO_NUM       18
+  #define Y6_GPIO_NUM       39
+  #define Y5_GPIO_NUM        5
+  #define Y4_GPIO_NUM       34
+  #define Y3_GPIO_NUM       35
+  #define Y2_GPIO_NUM       32
+  #define VSYNC_GPIO_NUM    22
+  #define HREF_GPIO_NUM     26
+  #define PCLK_GPIO_NUM     21
+
+#elif defined(CAMERA_MODEL_M5STACK_WITHOUT_PSRAM)
   #define PWDN_GPIO_NUM     -1
   #define RESET_GPIO_NUM    15
   #define XCLK_GPIO_NUM     27
