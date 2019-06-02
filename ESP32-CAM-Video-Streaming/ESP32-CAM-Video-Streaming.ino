@@ -32,11 +32,11 @@ const char* password = "REPLACE_WITH_YOUR_PASSWORD";
 
 #define PART_BOUNDARY "123456789000000000000987654321"
 
-// This project was only tested with the AI Thinker Model
+// This project was tested with the AI Thinker Model and M5STACK_PSRAM Model
 #define CAMERA_MODEL_AI_THINKER
-
-// Not tested with these boards
 //#define CAMERA_MODEL_M5STACK_PSRAM
+
+// Not tested with this model
 //#define CAMERA_MODEL_WROVER_KIT
 
 #if defined(CAMERA_MODEL_WROVER_KIT)
@@ -44,7 +44,8 @@ const char* password = "REPLACE_WITH_YOUR_PASSWORD";
   #define RESET_GPIO_NUM   -1
   #define XCLK_GPIO_NUM    21
   #define SIOD_GPIO_NUM    26
-  #define SIOC_GPIO_NUM    27  
+  #define SIOC_GPIO_NUM    27
+  
   #define Y9_GPIO_NUM      35
   #define Y8_GPIO_NUM      34
   #define Y7_GPIO_NUM      39
@@ -62,7 +63,8 @@ const char* password = "REPLACE_WITH_YOUR_PASSWORD";
   #define RESET_GPIO_NUM    15
   #define XCLK_GPIO_NUM     27
   #define SIOD_GPIO_NUM     25
-  #define SIOC_GPIO_NUM     23 
+  #define SIOC_GPIO_NUM     23
+  
   #define Y9_GPIO_NUM       19
   #define Y8_GPIO_NUM       36
   #define Y7_GPIO_NUM       18
@@ -81,6 +83,7 @@ const char* password = "REPLACE_WITH_YOUR_PASSWORD";
   #define XCLK_GPIO_NUM      0
   #define SIOD_GPIO_NUM     26
   #define SIOC_GPIO_NUM     27
+  
   #define Y9_GPIO_NUM       35
   #define Y8_GPIO_NUM       34
   #define Y7_GPIO_NUM       39
@@ -205,9 +208,16 @@ void setup() {
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 20000000;
   config.pixel_format = PIXFORMAT_JPEG; 
-  config.frame_size = FRAMESIZE_UXGA;
-  config.jpeg_quality = 10;
-  config.fb_count = 2;
+  
+  if(psramFound()){
+    config.frame_size = FRAMESIZE_UXGA;
+    config.jpeg_quality = 10;
+    config.fb_count = 2;
+  } else {
+    config.frame_size = FRAMESIZE_SVGA;
+    config.jpeg_quality = 12;
+    config.fb_count = 1;
+  }
   
   // Camera init
   esp_err_t err = esp_camera_init(&config);
@@ -224,10 +234,11 @@ void setup() {
   Serial.println("");
   Serial.println("WiFi connected");
   
-  // Start streaming web server
-  startCameraServer();
   Serial.print("Camera Stream Ready! Go to: http://");
   Serial.print(WiFi.localIP());
+  
+  // Start streaming web server
+  startCameraServer();
 }
 
 void loop() {
