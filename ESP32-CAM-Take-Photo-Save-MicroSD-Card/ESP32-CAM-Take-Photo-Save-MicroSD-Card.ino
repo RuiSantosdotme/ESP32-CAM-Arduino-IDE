@@ -26,6 +26,7 @@
 #include "soc/soc.h"           // Disable brownour problems
 #include "soc/rtc_cntl_reg.h"  // Disable brownour problems
 #include "dl_lib.h"
+#include "driver/rtc_io.h"
 #include <EEPROM.h>            // read and write from flash memory
 
 // define the number of bytes you want to access
@@ -141,10 +142,9 @@ void setup() {
   file.close();
   
   // Turns off the ESP32-CAM white on-board LED (flash) connected to GPIO 4
-  // However, during deep sleep the LED is turned on with low brightness. 
-  // You might need to unsolder the LED or edit the esp_camera/deep sleep files to turn it off completely
   pinMode(4, OUTPUT);
   digitalWrite(4, LOW);
+  rtc_gpio_hold_en(GPIO_NUM_4);
   
   delay(2000);
   Serial.println("Going to sleep now");
