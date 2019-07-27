@@ -140,6 +140,7 @@ void setup() {
     EEPROM.commit();
   }
   file.close();
+  esp_camera_fb_return(fb); 
   
   // Turns off the ESP32-CAM white on-board LED (flash) connected to GPIO 4
   pinMode(4, OUTPUT);
