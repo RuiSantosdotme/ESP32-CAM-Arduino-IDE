@@ -22,6 +22,14 @@ Learn how to take photos with the ESP32-CAM board and save them to a microSD car
 
 --------------
 
+# ESP32-CAM Take Photo and Display in Web Server
+
+Project Page: https://RandomNerdTutorials.com/esp32-cam-take-photo-display-web-server/
+
+Build a web server with the ESP32-CAM board to take a photo and visualize the latest captured photo in your browser saved in SPIFFS. You can also rotate the image if necessary.
+
+--------------
+
 # ESP32-CAM Troubleshooting Guide: Most Common Problems Fixed
 
 Project Page: https://RandomNerdTutorials.com/esp32-cam-troubleshooting-guide/
