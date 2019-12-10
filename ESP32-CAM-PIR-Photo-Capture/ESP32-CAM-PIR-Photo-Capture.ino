@@ -14,17 +14,11 @@
 *********/
  
 #include "esp_camera.h"
-#include "esp_timer.h"
-#include "img_converters.h"
 #include "Arduino.h"
-#include "fb_gfx.h"
-#include "fd_forward.h"
-#include "fr_forward.h"
 #include "FS.h"                // SD Card ESP32
 #include "SD_MMC.h"            // SD Card ESP32
 #include "soc/soc.h"           // Disable brownour problems
 #include "soc/rtc_cntl_reg.h"  // Disable brownour problems
-#include "dl_lib.h"
 #include "driver/rtc_io.h"
 #include <EEPROM.h>            // read and write from flash memory
 // define the number of bytes you want to access
