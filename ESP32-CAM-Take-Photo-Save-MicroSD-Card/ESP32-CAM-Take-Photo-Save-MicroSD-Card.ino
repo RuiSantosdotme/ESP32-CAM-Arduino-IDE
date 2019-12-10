@@ -3,8 +3,7 @@
   Complete project details at https://RandomNerdTutorials.com/esp32-cam-take-photo-save-microsd-card
   
   IMPORTANT!!! 
-   - Select Board "ESP32 Wrover Module"
-   - Select the Partion Scheme "Huge APP (3MB No OTA)
+   - Select Board "AI Thinker ESP32-CAM"
    - GPIO 0 must be connected to GND to upload a sketch
    - After connecting GPIO 0 to GND, press the ESP32-CAM on-board RESET button to put your board in flashing mode
   
