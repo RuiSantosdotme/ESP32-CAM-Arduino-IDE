@@ -23,7 +23,6 @@
 #include "fb_gfx.h"
 #include "soc/soc.h" //disable brownout problems
 #include "soc/rtc_cntl_reg.h"  //disable brownout problems
-#include "dl_lib.h"
 #include "esp_http_server.h"
 
 // Replace with your network credentials
