@@ -30,6 +30,16 @@ Build a web server with the ESP32-CAM board to take a photo and visualize the la
 
 --------------
 
+# TTGO T-Journal ESP32 Camera Development Board
+
+Getting Started Guide with Project Examples (Video Streaming Web Server, Taking Photos, Camera Web Server, Display Text in OLED Display, etc): https://RandomNerdTutorials.com/esp32-cam-take-photo-display-web-server/
+
+Documentation TTGO T-Journal ESP32 Camera (Pinout and Features): https://RandomNerdTutorials.com/esp32-cam-take-photo-display-web-server/
+
+The TTGO T-Journal features an OV2640 camera, an OLED display, several GPIOs to connect peripherals and a built-in programmer, which makes it easy to upload code.
+
+--------------
+
 # ESP32-CAM Troubleshooting Guide: Most Common Problems Fixed
 
-Project Page: https://RandomNerdTutorials.com/esp32-cam-troubleshooting-guide/
+Troubleshooting Guide: https://RandomNerdTutorials.com/esp32-cam-troubleshooting-guide/
