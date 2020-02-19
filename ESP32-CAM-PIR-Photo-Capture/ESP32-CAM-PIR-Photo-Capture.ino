@@ -45,8 +45,6 @@ RTC_DATA_ATTR int bootCount = 0;
 #define PCLK_GPIO_NUM     22
  
 int pictureNumber = 0;
-
-#define uS_TO_S_FACTOR 1000000
   
 void setup() {
   WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0); //disable brownout detector
