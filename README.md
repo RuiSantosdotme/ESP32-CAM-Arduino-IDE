@@ -40,6 +40,12 @@ The TTGO T-Journal features an OV2640 camera, an OLED display, several GPIOs to 
 
 --------------
 
+# Change ESP32-CAM OV2640 Camera Settings: Brightness, Resolution, Quality, Contrast, and More
+
+This guides shows how to change the ESP32-CAM OV2640 camera settings such as contrast, brightness, resolution, quality, saturation and more using Arduino IDE: https://RandomNerdTutorials.com/esp32-cam-ov2640-camera-settings/
+
+--------------
+
 # ESP32-CAM Troubleshooting Guide: Most Common Problems Fixed
 
 Troubleshooting Guide: https://RandomNerdTutorials.com/esp32-cam-troubleshooting-guide/
