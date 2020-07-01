@@ -46,6 +46,14 @@ This guides shows how to change the ESP32-CAM OV2640 camera settings such as con
 
 --------------
 
+# ESP32-CAM Post Images to Local or Cloud Server using PHP (Photo Manager)
+
+Learn how to make HTTP POST requests using the ESP32-CAM board with Arduino IDE to send photos to a server. We’ll show how to post a JPG/JPEG image to a local server (Raspberry Pi LAMP server) or to a cloud server (that you can access from anywhere). The photos will be displayed on a gallery where you can view or delete the photos. To save the images in the server and create the gallery, we'll use PHP scripts.
+
+https://RandomNerdTutorials.com/esp32-cam-post-image-photo-server/
+
+--------------
+
 # ESP32-CAM Troubleshooting Guide: Most Common Problems Fixed
 
 Troubleshooting Guide: https://RandomNerdTutorials.com/esp32-cam-troubleshooting-guide/
