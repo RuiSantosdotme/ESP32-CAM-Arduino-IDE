@@ -1,6 +1,6 @@
 <?php
 // Rui Santos
-// Complete project details at https://RandomNerdTutorials.com/
+// Complete project details at https://RandomNerdTutorials.com/esp32-cam-post-image-photo-server/
 // Code Based on this example: w3schools.com/php/php_file_upload.asp
 
 $target_dir = "uploads/";
