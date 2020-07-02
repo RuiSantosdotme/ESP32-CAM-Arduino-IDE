@@ -32,7 +32,7 @@
   // Check delete HTTP GET request - remove images
   if(isset($_GET["delete"])){
     $imageFileType = strtolower(pathinfo($_GET["delete"],PATHINFO_EXTENSION));
-    if (file_exists($_GET["delete"]) && ($imageFileType == "jpg" ||  $imageFileType == "png" ||  $imageFileType == "$
+    if (file_exists($_GET["delete"]) && ($imageFileType == "jpg" ||  $imageFileType == "png" ||  $imageFileType == "jpeg") ) {
       echo "File found and deleted: " .  $_GET["delete"];
       unlink($_GET["delete"]);
     }
@@ -40,7 +40,6 @@
       echo 'File not found - <a href="gallery.php">refresh</a>';
     }
   }
-
   // Target directory
   $dir = 'uploads/';
   if (is_dir($dir)){
