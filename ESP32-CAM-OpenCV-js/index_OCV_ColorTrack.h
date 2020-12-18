@@ -149,7 +149,7 @@ button{
             <tr>
                 <td>B min:&#160;&#160;&#160;<span id ="BMINdemo"></span></td>
                 <td><input type="range" id="bmin" min="0" max="255" value="0" class = "slider">  </td>
-                <td>B max:<span id="BMAXdemo"></span></td>
+                <td>B max:&#160;&#160;&#160;<span id="BMAXdemo"></span></td>
                 <td> <input type="range" id="bmax" min="0" max="255" value="50" class = "slider">   </td>
             </tr>
         </table>
