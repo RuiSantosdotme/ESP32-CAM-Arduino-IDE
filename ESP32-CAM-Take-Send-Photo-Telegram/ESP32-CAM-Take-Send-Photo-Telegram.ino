@@ -198,24 +198,21 @@ String sendPhotoTelegram() {
     long startTimer = millis();
     boolean state = false;
     
-    while ((startTimer + waitTime) > millis())
-    {
+    while ((startTimer + waitTime) > millis()){
       Serial.print(".");
       delay(100);      
-      while (clientTCP.available()) 
-      {
-          char c = clientTCP.read();
-          if (c == '\n') 
-          {
-            if (getAll.length()==0) state=true; 
-            getAll = "";
-          } 
-          else if (c != '\r')
-            getAll += String(c);
-          if (state==true) getBody += String(c);
-          startTimer = millis();
-       }
-       if (getBody.length()>0) break;
+      while (clientTCP.available()) {
+        char c = clientTCP.read();
+        if (state==true) getBody += String(c);        
+        if (c == '\n') {
+          if (getAll.length()==0) state=true; 
+          getAll = "";
+        } 
+        else if (c != '\r')
+          getAll += String(c);
+        startTimer = millis();
+      }
+      if (getBody.length()>0) break;
     }
     clientTCP.stop();
     Serial.println(getBody);
