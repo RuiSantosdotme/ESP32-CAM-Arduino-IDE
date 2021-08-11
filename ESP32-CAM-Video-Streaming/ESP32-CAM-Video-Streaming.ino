@@ -135,6 +135,11 @@ static esp_err_t stream_handler(httpd_req_t *req){
     return res;
   }
 
+  res = httpd_resp_send_chunk(req, _STREAM_BOUNDARY, strlen(_STREAM_BOUNDARY));
+  if(res != ESP_OK){
+    return res;
+  }
+
   while(true){
     fb = esp_camera_fb_get();
     if (!fb) {
