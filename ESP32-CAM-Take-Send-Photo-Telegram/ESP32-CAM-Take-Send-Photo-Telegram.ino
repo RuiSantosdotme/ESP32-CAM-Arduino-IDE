@@ -83,12 +83,13 @@ void configInitCamera(){
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 20000000;
   config.pixel_format = PIXFORMAT_JPEG;
+  config.grab_mode = CAMERA_GRAB_LATEST;
 
   //init with high specs to pre-allocate larger buffers
   if(psramFound()){
     config.frame_size = FRAMESIZE_UXGA;
     config.jpeg_quality = 10;  //0-63 lower number means higher quality
-    config.fb_count = 2;
+    config.fb_count = 1;
   } else {
     config.frame_size = FRAMESIZE_SVGA;
     config.jpeg_quality = 12;  //0-63 lower number means higher quality
@@ -102,10 +103,6 @@ void configInitCamera(){
     delay(1000);
     ESP.restart();
   }
-
-  // Drop down frame size for higher initial frame rate
-  sensor_t * s = esp_camera_sensor_get();
-  s->set_framesize(s, FRAMESIZE_CIF);  // UXGA|SXGA|XGA|SVGA|VGA|CIF|QVGA|HQVGA|QQVGA
 }
 
 void handleNewMessages(int numNewMessages) {
@@ -148,7 +145,13 @@ String sendPhotoTelegram() {
   String getAll = "";
   String getBody = "";
 
+  //Dispose first picture because of bad quality
   camera_fb_t * fb = NULL;
+  fb = esp_camera_fb_get();
+  esp_camera_fb_return(fb); // dispose the buffered image
+  
+  // Take a new photo
+  fb = NULL;  
   fb = esp_camera_fb_get();  
   if(!fb) {
     Serial.println("Camera capture failed");
@@ -166,9 +169,9 @@ String sendPhotoTelegram() {
     String head = "--RandomNerdTutorials\r\nContent-Disposition: form-data; name=\"chat_id\"; \r\n\r\n" + CHAT_ID + "\r\n--RandomNerdTutorials\r\nContent-Disposition: form-data; name=\"photo\"; filename=\"esp32-cam.jpg\"\r\nContent-Type: image/jpeg\r\n\r\n";
     String tail = "\r\n--RandomNerdTutorials--\r\n";
 
-    uint16_t imageLen = fb->len;
-    uint16_t extraLen = head.length() + tail.length();
-    uint16_t totalLen = imageLen + extraLen;
+    size_t imageLen = fb->len;
+    size_t extraLen = head.length() + tail.length();
+    size_t totalLen = imageLen + extraLen;
   
     clientTCP.println("POST /bot"+BOTtoken+"/sendPhoto HTTP/1.1");
     clientTCP.println("Host: " + String(myDomain));
