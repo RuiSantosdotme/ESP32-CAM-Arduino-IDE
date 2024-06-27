@@ -1,6 +1,6 @@
-### [Try all our free ESP32-CAM Projects » https://RandomNerdTutorials.com/esp32-cam-projects-ebook/](https://randomnerdtutorials.com/esp32-cam-projects-ebook/)
+### [Try all our free ESP32-CAM Projects » https://RandomNerdTutorials.com/projects-esp32-cam/](https://randomnerdtutorials.com/projects-esp32-cam/)
 
-### [Grab our eBook: Build ESP32-CAM Projects using Arduino IDE » https://RandomNerdTutorials.com/esp32-cam-projects-ebook/](https://RandomNerdTutorials.com/esp32-cam-projects-ebook/)
+### [Grab our eBook: Build ESP32-CAM Projects using Arduino IDE » https://RandomNerdTutorials.com/esp32-cam-projects-ebook/](https://randomnerdtutorials.com/esp32-cam-projects-ebook/)
 
 --------------
 
