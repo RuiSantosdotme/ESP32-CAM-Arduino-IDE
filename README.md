@@ -1,3 +1,9 @@
+# [Try all our free ESP32-CAM Projects » https://RandomNerdTutorials.com/esp32-cam-projects-ebook/](https://randomnerdtutorials.com/esp32-cam-projects-ebook/)
+
+# [Grab our eBook: Build ESP32-CAM Projects using Arduino IDE » https://RandomNerdTutorials.com/esp32-cam-projects-ebook/](https://RandomNerdTutorials.com/esp32-cam-projects-ebook/)
+
+--------------
+
 # ESP32-CAM Video Streaming Web Server (works with Home Assistant, Node-RED, etc)
 
 Project Page: https://RandomNerdTutorials.com/esp32-cam-video-streaming-web-server-camera-home-assistant/
