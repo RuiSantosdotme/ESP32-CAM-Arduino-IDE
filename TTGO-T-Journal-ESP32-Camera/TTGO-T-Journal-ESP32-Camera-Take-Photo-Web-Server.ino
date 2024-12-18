@@ -18,7 +18,6 @@
 #include "soc/rtc_cntl_reg.h"  // Disable brownour problems
 #include "driver/rtc_io.h"
 #include <ESPAsyncWebServer.h>
-#include <StringArray.h>
 #include <SPIFFS.h>
 #include <FS.h>
 
@@ -185,12 +184,12 @@ void setup() {
 
   // Route for root / web page
   server.on("/", HTTP_GET, [](AsyncWebServerRequest * request) {
-    request->send_P(200, "text/html", index_html);
+    request->send(200, "text/html", index_html);
   });
 
   server.on("/capture", HTTP_GET, [](AsyncWebServerRequest * request) {
     takeNewPhoto = true;
-    request->send_P(200, "text/plain", "Taking Photo");
+    request->send(200, "text/plain", "Taking Photo");
   });
 
   server.on("/saved-photo", HTTP_GET, [](AsyncWebServerRequest * request) {
