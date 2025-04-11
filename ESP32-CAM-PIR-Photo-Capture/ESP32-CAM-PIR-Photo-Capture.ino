@@ -1,5 +1,5 @@
 /*********
-  Rui Santos
+  Rui Santos & Sara Santos - Random Nerd Tutorials
   Complete project details at https://RandomNerdTutorials.com/esp32-cam-pir-motion-detector-photo-capture/
  
   IMPORTANT!!!
@@ -17,8 +17,8 @@
 #include "Arduino.h"
 #include "FS.h"                // SD Card ESP32
 #include "SD_MMC.h"            // SD Card ESP32
-#include "soc/soc.h"           // Disable brownour problems
-#include "soc/rtc_cntl_reg.h"  // Disable brownour problems
+#include "soc/soc.h"           // Disable brownout problems
+#include "soc/rtc_cntl_reg.h"  // Disable brownout problems
 #include "driver/rtc_io.h"
 #include <EEPROM.h>            // read and write from flash memory
 // define the number of bytes you want to access
@@ -73,6 +73,7 @@ void setup() {
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 20000000;
   config.pixel_format = PIXFORMAT_JPEG;
+  config.grab_mode = CAMERA_GRAB_LATEST;
   
   pinMode(4, INPUT);
   digitalWrite(4, LOW);
@@ -98,7 +99,7 @@ void setup() {
   Serial.println("Starting SD Card");
  
   delay(500);
-  if(!SD_MMC.begin()){
+  if (!SD_MMC.begin("/sdcard", true)) { // true enables 1-bit mode to free up GPIOs
     Serial.println("SD Card Mount Failed");
     //return;
   }
@@ -147,7 +148,9 @@ void setup() {
   digitalWrite(4, LOW);
   rtc_gpio_hold_en(GPIO_NUM_4);
 
-  esp_sleep_enable_ext0_wakeup(GPIO_NUM_13, 0);
+  esp_sleep_enable_ext0_wakeup(GPIO_NUM_13, 1);
+  rtc_gpio_pullup_dis(GPIO_NUM_13);
+  rtc_gpio_pulldown_en(GPIO_NUM_13);
  
   Serial.println("Going to sleep now");
   delay(1000);
