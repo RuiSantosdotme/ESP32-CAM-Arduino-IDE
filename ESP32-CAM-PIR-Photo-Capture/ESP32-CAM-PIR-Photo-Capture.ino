@@ -6,11 +6,9 @@
    - Select Board "AI Thinker ESP32-CAM"
    - GPIO 0 must be connected to GND to upload a sketch
    - After connecting GPIO 0 to GND, press the ESP32-CAM on-board RESET button to put your board in flashing mode
- 
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files.
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
+   
+  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files.
+  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 *********/
  
 #include "esp_camera.h"
