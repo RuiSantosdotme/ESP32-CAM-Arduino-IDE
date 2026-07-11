@@ -13,7 +13,7 @@ static const char PROGMEM INDEX_HTML[] = R"rawliteral(
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width,initial-scale=1">
    <!----ANN:3--->
-   <script async src=" https://docs.opencv.org/master/opencv.js" type="text/javascript"></script>
+   <script async src="https://docs.opencv.org/3.4.0/opencv.js" type="text/javascript"></script>
 </head>
 <style>
 html {
